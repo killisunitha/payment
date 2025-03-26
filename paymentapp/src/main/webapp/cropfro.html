@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SF Pro Display', 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: url('https://images.nationalgeographic.org/image/upload/t_edhub_resource_key_image/v1638892233/EducationHub/photos/crops-growing-in-thailand.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+               .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            width: 50%;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.2);
+            position:relative;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #ffcc00;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .crop-info {
+            font-size: 1.4rem;
+            margin-bottom: 30px; /* Added space to separate from button */
+        }
+
+        .visit-btn {
+            background: #ffcc00;
+            color: black;
+            padding: 15px 30px;
+            font-size: 1.3rem;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: transform 0.3s ease, background 0.3s ease;
+            display: inline-block;
+        }
+
+        .visit-btn:hover {
+            background: #e6b800;
+            transform: scale(1.05);
+        }
+
+        /* Crops Section */
+        .crops-section {
+            padding: 80px 20px;
+            background: rgba(0, 0, 0, 0.9);
+            text-align: center;
+        }
+
+        .crops-section h2 {
+            font-size: 3rem;
+            color: #ffcc00;
+            margin-bottom: 50px;
+            font-weight: bold;
+        }
+
+        .crop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .crop-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .crop-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .crop-image {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            display: block;
+            object-fit: contain;
+        }
+
+        .crop-card h3 {
+            font-size: 1.8rem;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        .crop-card p {
+            font-size: 1.1rem;
+            color: #ddd;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+                padding: 20px;
+            }
+             h1,h2 {
+            font-size: 2.5rem;
+            color: #ffcc00;
+        }
+            .crop-info, .visit-btn {
+                font-size: 1rem;
+            }
+            .crop-grid {
+                grid-template-columns: 1fr;
+            }
+            .crop-card {
+                padding: 20px;
+            }
+            .crop-image {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1> Welcome to Crop Recommendation System</h1>
+            <p class="crop-info">
+                Discover <b>real-time crop insights</b> powered by AI, tailored to <b>soil, weather, and sustainability</b>.
+            </p>
+            <a href="recommend.html" class="visit-btn">Get Started</a>
+        </div>
+    </section>
+g
+    <!-- Crops Section -->
+    <section class="crops-section">
+        <h2>Your Crop Options</h2>
+        <div class="crop-grid">
+            <div class="crop-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX-8L_7b_bBUV2xDB2KOul5HGlTcWaHc1S-w&s" class="crop-image" alt="Apple">
+                <h3>Apple</h3>
+                <p>Grows in temperate climates with well-drained soil. Harvest: Fall. Needs 500-1000 chill hours.</p>
+            </div>
+            <div class="crop-card">
+                <img src="https://www.abca.org/images/UploadedImages/Magazine/2020_Articles/coffee-magazine-post.jpg" alt="Coffee">
+                <h3>Coffee</h3>
+                <p>Thrives in tropical regions, 15-24°C. Requires rich, acidic soil and shade.</p>
+            </div>
+            <div class="crop-card">
+                <img src="https://www.gardentech.com/-/media/project/oneweb/gardentech/images/blog/how-to-grow-your-own-tasty-strawberries/strawberries-header-og.jpg" class="crop-image" alt="Strawberry">
+                <h3>Strawberry</h3>
+                <p>Prefers cool weather, sandy loam soil. High yield in spring with proper irrigation.</p>
+            </div>
+            <div class="crop-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSICKmGR0i9euTEPSY3D97JFTnFl3D_vQk0MA&s" alt="Grapes">
+                <h3>Grapes</h3>
+                <p>Loves sunny, Mediterranean climates. Well-drained soil, harvest in late summer.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script>
+        // Hero Animations
+        gsap.timeline()
+            .from(".hero h1", { y: 60, opacity: 0, duration: 1.2, ease: "power4.out" })
+            .from(".crop-info", { y: 60, opacity: 0, duration: 1.2, ease: "power4.out" }, "-=0.8")
+            .from(".visit-btn", { scale: 0.8, opacity: 0, duration: 1, ease: "elastic.out(1, 0.5)" }, "-=0.6");
+
+        // Crop Cards Animation
+        gsap.utils.toArray(".crop-card").forEach(card => {
+            gsap.from(card, {
+                opacity: 0,
+                y: 80,
+                scale: 0.9,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+            gsap.from(card.querySelector(".crop-image"), {
+                rotation: 360,
+                opacity: 0,
+                duration: 1.5,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%"
+                }
+            });
+        });
+    </script>
+</body>
+</html>
